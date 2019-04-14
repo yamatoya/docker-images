@@ -7,9 +7,9 @@
 
 FROM alpine
 
-RUN apk --no-cache add python python3 \
+RUN apk --no-cache add python python2 \
                        build-base \
-                       python-dev python3-dev \
+                       python-dev python2-dev \
                        # wget dependency
                        openssl \
                        # dev dependencies
@@ -38,7 +38,7 @@ RUN /usr/sbin/adduser -D pillow && \
     /vpy/bin/pip install olefile pytest pytest-cov && \
     /vpy/bin/pip install numpy --only-binary=:all: || true && \
     chown -R pillow:pillow /vpy && \
-    virtualenv -p python3.6 /vpy3 && \
+    virtualenv -p python2.7 /vpy3 && \
     /vpy3/bin/pip install --upgrade pip && \
     /vpy3/bin/pip install olefile pytest pytest-cov && \
     /vpy3/bin/pip install numpy --only-binary=:all: || true && \
